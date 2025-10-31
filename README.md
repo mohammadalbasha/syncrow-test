@@ -12,7 +12,7 @@ A NestJS-based REST API with WebSocket support, featuring JWT authentication, de
 - 🔒 **Role-Based Access Control** - Admin and user roles with guards
 - 📄 **Pagination** - Efficient data pagination for list endpoints
 - 🛡️ **Exception Filtering** - Global exception handling with consistent error responses
-- 🔐 **Security Features** - CSRF protection, CORS, and secure password hashing
+- 🔐 **Security Features** - CORS
 
 ## Tech Stack
 
@@ -233,6 +233,8 @@ src/
 ├── db/             # Database setup and seeds
 ├── shared/         # Shared utilities, filters, decorators
 └── setup/          # Application setup functions
+└── test/          # Application test config and e2e test
+
 ```
 
 ## License
