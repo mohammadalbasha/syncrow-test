@@ -18,6 +18,7 @@ import { JwtConfig } from 'src/config/config.interface';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { User } from '../auth/repository/user.model';
+import { extractTokenFromSocket } from './utils';
 
 @WsGateway({
   cors: {
@@ -44,7 +45,7 @@ export class WebSocketGateway implements OnGatewayInit, OnGatewayConnection, OnG
     server.use((socket: Socket, next: (err?: Error) => void) => {
       void (async () => {
         try {
-          const token = this.extractTokenFromSocket(socket);
+          const token = extractTokenFromSocket(socket); 
           if (!token) {
             this.logger.warn(`Connection rejected: No token provided - ${socket.id}`);
             next(new Error('Authentication error: No token provided'));
@@ -77,26 +78,7 @@ export class WebSocketGateway implements OnGatewayInit, OnGatewayConnection, OnG
     });
   }
 
-  private extractTokenFromSocket(client: Socket): string | null {
-    if (client.handshake.auth?.token) {
-      return client.handshake.auth.token;
-    }
-
-    if (client.handshake.query?.token) {
-      return Array.isArray(client.handshake.query.token)
-        ? client.handshake.query.token[0]
-        : client.handshake.query.token;
-    }
-
-    
-    const authHeader = client.handshake.headers?.authorization;
-    if (authHeader && authHeader.startsWith('Bearer ')) {
-      return authHeader.substring(7);
-    }
-
-    return null;
-  }
-
+  
   handleConnection(client: Socket) {
     const user = client.data.user;
     this.logger.log(`Client connected: ${client.id}, User: ${user?.username || 'Unknown'}`);
