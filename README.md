@@ -29,7 +29,7 @@ A NestJS-based REST API with WebSocket support, featuring JWT authentication, de
 - PostgreSQL (v12 or higher)
 - npm or yarn
 
-## Installation
+## Installation  
 
 1. Clone the repository:
 ```bash
@@ -37,12 +37,8 @@ git clone <repository-url>
 cd syncrow-test
 ```
 
-2. Install dependencies:
-```bash
-npm install
-```
 
-3. Create a `.env` file in the root directory:
+2. Create a `.env` file in the root directory:
 ```env
 # Application
 PORT=3000
@@ -65,7 +61,7 @@ JWT_REFRESH_TOKEN_EXPIRATION_DAYS=7
 CORS_ENABLED=true
 ```
 
-4. RUN THE APPLICATION:
+3. RUN THE APPLICATION:
 ```bash
 # Using Docker Compose
 docker-compose up -d 
@@ -77,18 +73,9 @@ docker-compose up -d
 
 The API will be available at `http://localhost:3000/api/v1`
 
-4. RUN THE APPLICATION:
-```bash
-# Using Docker Compose
-docker-compose up -d 
-
-
-
-
-
 
 ```
-5. SEED
+4. SEED
 ```bash
 npm run db:seed
 ```
