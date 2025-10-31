@@ -221,20 +221,6 @@ npm run db:seed
 - `npm run test` - Run unit tests
 - `npm run test:e2e` - Run end-to-end tests
 
-## Error Handling
-
-All errors are handled by a global exception filter that returns consistent error responses:
-
-```json
-{
-  "statusCode": 404,
-  "timestamp": "2024-01-15T10:30:00.000Z",
-  "path": "/api/v1/devices/123",
-  "method": "GET",
-  "error": "NotFoundException",
-  "message": "Device not found"
-}
-```
 
 ## Project Structure
 
