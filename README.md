@@ -45,7 +45,7 @@ PORT=3000
 APP_ENV=development
 
 # Database
-DB_HOST=localhost
+DB_HOST=localhost # or localhost
 DB_PORT=5432
 DB_USERNAME=postgres
 DB_PASSWORD=postgres
