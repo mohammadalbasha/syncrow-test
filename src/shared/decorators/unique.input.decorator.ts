@@ -69,7 +69,6 @@ export class UniqueValidator implements ValidatorConstraintInterface {
           requestId = parsedId;
         }
       }
-      
       if (requestId) {
         queryBuilder.andWhere('entity.id != :id', { id: requestId });
       }

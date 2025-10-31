@@ -44,7 +44,9 @@ export class DeviceService {
   }
 
   async update(id: number, dto: UpdateDeviceDto): Promise<Device> {
+
     const device = await this.findOne(id);
+    if (!device) throw new NotFoundException('Device not found');
    // or const updated = await this.deviceRepository.update(id, dto);
     Object.assign(device, dto);
     return this.deviceRepository.save(device);

@@ -1,9 +1,9 @@
 services:
-  syncrow-test:
+  syncrow:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: syncorw
+    container_name: syncrow-app
     restart: always
     ports:
       - "${PORT:-3000}:${PORT:-3000}"

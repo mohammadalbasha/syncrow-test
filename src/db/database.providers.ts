@@ -16,7 +16,7 @@ export const DatabaseModule = TypeOrmModule.forRootAsync({
       database: dbConfig.database,
       entities: [__dirname + '/../**/*.model.{ts,js}'],
       synchronize: true, // TODO: Remove in production
-      logging: true,
+      //logging: true,
       ssl: dbConfig.ssl ? { rejectUnauthorized: false } : false,
     };
   },

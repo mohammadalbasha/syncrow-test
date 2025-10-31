@@ -65,31 +65,43 @@ JWT_REFRESH_TOKEN_EXPIRATION_DAYS=7
 CORS_ENABLED=true
 ```
 
-4. Set up the database:
+4. RUN THE APPLICATION:
 ```bash
 # Using Docker Compose
-docker-compose up -d postgres
+docker-compose up -d 
 
-# Or manually create a PostgreSQL database named 'syncrow'
 ```
 
-5. Seed the database:
+
+
+
+The API will be available at `http://localhost:3000/api/v1`
+
+4. RUN THE APPLICATION:
+```bash
+# Using Docker Compose
+docker-compose up -d 
+
+
+
+
+
+
+```
+5. SEED
 ```bash
 npm run db:seed
 ```
 
-## Running the Application
+
+## TESTING
 
 ```bash
-# Development
-npm run start:dev
+npm run test
+npm run test:e2e
 
-# Production
-npm run build
-npm run start:prod
 ```
 
-The API will be available at `http://localhost:3000/api/v1`
 
 ## API Endpoints
 

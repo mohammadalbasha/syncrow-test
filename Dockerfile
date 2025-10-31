@@ -24,14 +24,13 @@ RUN npm run build
 #USER root
 #RUN chmod +x docker-entrypoint.sh
 #USER node
+
 # Expose the application port
 EXPOSE 3000
 
-# Start the application and keep container running
-# CMD ["sh", "-c", "npm run start:prod || tail -f /dev/null"]
-#ENTRYPOINT ["./docker-entrypoint.sh"]
 
-RUN npm run db:seed
+#ENTRYPOINT ["./docker-entrypoint.sh"]
+#RUN npm run db:seed
 
 
 CMD ["node", "dist/main.js"]
